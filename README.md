@@ -1,4 +1,4 @@
-# Blender Cube Mesh Manager# Blender Cube Mesh Manager# Cube Mesh Manager - Blender Addon
+# Blender Cube Mesh Manager# Blender Cube Mesh Manager# Blender Cube Mesh Manager# Cube Mesh Manager - Blender Addon
 
 
 
@@ -6,153 +6,309 @@ A Blender addon for distributing cubes in 2D grids and merging meshes with share
 
 
 
-![Blender Version](https://img.shields.io/badge/Blender-3.0%2B-orange)A Blender addon for distributing cubes in 2D grids and merging meshes with shared faces.A Blender addon for distributing cubes in 2D arrays and merging meshes with common faces.
+## FeaturesA Blender addon for distributing cubes in 2D grids and merging meshes with shared faces.
 
-![Python](https://img.shields.io/badge/Python-3.x-blue)
+
+
+### Cube Distribution
+
+- Input validation for 1-20 cubes with error messages for out-of-range values
+
+- Smart grid layout using near-square dimensions (m×n where m = ⌈√N⌉)![Blender Version](https://img.shields.io/badge/Blender-3.0%2B-orange)A Blender addon for distributing cubes in 2D grids and merging meshes with shared faces.A Blender addon for distributing cubes in 2D arrays and merging meshes with common faces.
+
+- Automatic collection management for organized scene hierarchy
+
+- AABB collision detection to prevent overlapping with existing objects![Python](https://img.shields.io/badge/Python-3.x-blue)
+
+- Quick delete tool for selected objects
 
 ![License](https://img.shields.io/badge/License-MIT-green)
 
+### Mesh Composition
 
+- Detects meshes sharing common faces using vertex-level comparison
 
-## Overview![Blender Version](https://img.shields.io/badge/Blender-3.0%2B-orange)## Features
+- Merges meshes and removes internal geometry automatically
 
+- Processes multiple mesh pairs in a single operation## Overview![Blender Version](https://img.shields.io/badge/Blender-3.0%2B-orange)## Features
 
-
-**Cube Mesh Manager** distributes cubes in a 2D grid pattern, avoids overlaps with existing objects, and intelligently merges meshes that share common faces. Perfect for procedural modeling, architectural layouts, and mesh composition workflows.![Python](https://img.shields.io/badge/Python-3.x-blue)
-
-
-
-## Features![License](https://img.shields.io/badge/License-MIT-green)### Feature Set 1: Cube Distribution
-
-
-
-### Cube Distribution System- **Input Box**: Enter a natural number N (<20) to specify the number of cubes
-
-- **Smart Grid Layout** - Automatically calculates near-square dimensions (m×n where m = ⌈√N⌉)
-
-- **Input Validation** - Accepts 1-20 cubes with "out of range" error for invalid inputs## 🎯 Overview- **Range Validation**: Pop-up warning if number exceeds 20
-
-- **Collection Management** - Organizes cubes in "Distributed Cubes" collection
-
-- **Overlap Avoidance** - AABB collision detection with 5×5 position search algorithm- **Smart Distribution**: Cubes are evenly distributed in a 2D array (m × n grid)
-
-- **Delete Tool** - Quick removal of selected objects
-
-**Cube Mesh Manager** distributes cubes in a 2D grid pattern, avoids overlaps with existing objects, and intelligently merges meshes that share common faces. Perfect for procedural modeling, architectural layouts, and mesh composition workflows.- **Automatic Collection**: Creates a "Distributed Cubes" collection for organization
-
-### Mesh Composition System
-
-- **Common Face Detection** - Vertex-level comparison with 0.0001 tolerance- **Overlap Avoidance**: Algorithm prevents new cubes from overlapping existing objects
-
-- **Seamless Merging** - Joins meshes and removes internal geometry
-
-- **Multi-Object Support** - Processes multiple mesh pairs automatically## ✨ Features- **Delete Function**: Button to delete selected cubes
-
-- **BMesh Integration** - Precise face removal using low-level mesh editing
+- Uses BMesh for precise face removal with 0.0001 unit tolerance
 
 
 
 ## Installation
 
-### 📦 Cube Distribution System### Feature Set 2: Mesh Composition
+**Cube Mesh Manager** distributes cubes in a 2D grid pattern, avoids overlaps with existing objects, and intelligently merges meshes that share common faces. Perfect for procedural modeling, architectural layouts, and mesh composition workflows.![Python](https://img.shields.io/badge/Python-3.x-blue)
 
-### Method 1: Quick Install
+### Method 1: Via Blender Preferences
 
-1. Download [`cube_mesh_manager.py`](cube_mesh_manager.py)- **Smart Grid Layout** - Automatically calculates near-square dimensions (m×n where m = ⌈√N⌉)- **Merge Meshes**: Combines selected meshes with common faces into a single mesh
+1. Download `cube_mesh_manager.py`
 
-2. Open Blender → Edit → Preferences → Add-ons
+2. Open Blender and go to Edit → Preferences → Add-ons
 
-3. Click **Install...** → Select the file → Enable checkbox- **Input Validation** - Accepts 1-20 cubes with "out of range" error for invalid inputs- **Common Face Detection**: Automatically identifies meshes sharing at least one face
+3. Click Install and select the downloaded file## Features![License](https://img.shields.io/badge/License-MIT-green)### Feature Set 1: Cube Distribution
+
+4. Enable the addon by checking the checkbox
 
 
 
-### Method 2: Manual Install- **Collection Management** - Organizes cubes in "Distributed Cubes" collection- **Smart Merging**: Merges common vertices and removes duplicate faces
+### Method 2: Manual Installation
 
-```bash
+1. Download `cube_mesh_manager.py`### Cube Distribution System- **Input Box**: Enter a natural number N (<20) to specify the number of cubes
 
-# Find your Blender addons folder:- **Overlap Avoidance** - AABB collision detection with 5×5 position search algorithm- **Clean Geometry**: Resulting mesh has no internal faces or duplicate vertices
+2. Copy to Blender addons folder:
 
-# Windows: %APPDATA%\Blender Foundation\Blender\{version}\scripts\addons\
+   - Windows: `%APPDATA%\Blender Foundation\Blender\{version}\scripts\addons\`- **Smart Grid Layout** - Automatically calculates near-square dimensions (m×n where m = ⌈√N⌉)
 
-# macOS:   ~/Library/Application Support/Blender/{version}/scripts/addons/- **Delete Tool** - Quick removal of selected objects
+   - macOS: `~/Library/Application Support/Blender/{version}/scripts/addons/`
 
-# Linux:   ~/.config/blender/{version}/scripts/addons/
+   - Linux: `~/.config/blender/{version}/scripts/addons/`- **Input Validation** - Accepts 1-20 cubes with "out of range" error for invalid inputs## 🎯 Overview- **Range Validation**: Pop-up warning if number exceeds 20
 
-## Requirements
+3. Restart Blender and enable in Preferences → Add-ons
 
-# Copy the addon file
-
-cp cube_mesh_manager.py /path/to/blender/addons/### 🔗 Mesh Composition System
-
-```
-
-- **Common Face Detection** - Vertex-level comparison with 0.0001 tolerance- **Blender Version**: 3.0.0 or higher
+- **Collection Management** - Organizes cubes in "Distributed Cubes" collection
 
 ## Usage
 
-- **Seamless Merging** - Joins meshes and removes internal geometry- **Python**: Comes bundled with Blender (no external installation needed)
+- **Overlap Avoidance** - AABB collision detection with 5×5 position search algorithm- **Smart Distribution**: Cubes are evenly distributed in a 2D array (m × n grid)
 
-### Access the Panel
+### Access Panel
 
-Press `N` in 3D Viewport → Click **"Cube Manager"** tab- **Multi-Object Support** - Processes multiple mesh pairs automatically- **Operating System**: Windows, macOS, or Linux
+Press `N` in 3D Viewport to open sidebar, then click the "Cube Manager" tab.- **Delete Tool** - Quick removal of selected objects
 
 
 
-### Distribute Cubes- **BMesh Integration** - Precise face removal using low-level mesh editing
+### Distribute Cubes**Cube Mesh Manager** distributes cubes in a 2D grid pattern, avoids overlaps with existing objects, and intelligently merges meshes that share common faces. Perfect for procedural modeling, architectural layouts, and mesh composition workflows.- **Automatic Collection**: Creates a "Distributed Cubes" collection for organization
 
-1. Enter number (1-20) in "Number of Meshes"
+1. Enter a number between 1-20 in the "Number of Meshes" field
 
-2. Click **"Distribute Cubes"**## Installation
+2. Click "Distribute Cubes" button### Mesh Composition System
 
-3. Cubes appear in 2D grid with 2.5 unit spacing
+3. Cubes appear in a 2D grid with 2.5 unit spacing
 
-## 📥 Installation
+- **Common Face Detection** - Vertex-level comparison with 0.0001 tolerance- **Overlap Avoidance**: Algorithm prevents new cubes from overlapping existing objects
 
 ### Merge Meshes
 
-1. Position meshes so they share a face### Method 1: Direct Installation (Recommended)
+1. Position meshes so they share at least one face- **Seamless Merging** - Joins meshes and removes internal geometry
 
-2. Select 2+ mesh objects
+2. Select 2 or more mesh objects
 
-3. Click **"Compose Mesh"**### Method 1: Quick Install
+3. Click "Compose Mesh" button- **Multi-Object Support** - Processes multiple mesh pairs automatically## ✨ Features- **Delete Function**: Button to delete selected cubes
 
-4. Internal faces automatically removed
+4. Meshes merge and internal faces are removed
 
-1. Download [`cube_mesh_manager.py`](cube_mesh_manager.py)1. Download the `cube_mesh_manager.py` file
+- **BMesh Integration** - Precise face removal using low-level mesh editing
 
 ### Delete Objects
 
-1. Select one or more objects2. Open Blender → Edit → Preferences → Add-ons2. Open Blender
+1. Select one or more objects
 
-2. Click **"Delete Cubes"**
+2. Click "Delete Cubes" button
 
-3. Click **Install...** → Select the file → Enable checkbox3. Go to `Edit` → `Preferences` → `Add-ons`
+## Installation
 
 ## Testing
 
-4. Click `Install...` button at the top
+### 📦 Cube Distribution System### Feature Set 2: Mesh Composition
 
-Run the complete test suite:
+Run the test suite from command line:
 
-### Method 2: Manual Install5. Navigate to and select `cube_mesh_manager.py`
+### Method 1: Quick Install
 
 ```bash
 
-# From command line (background mode)```bash6. Enable the addon by checking the checkbox next to "Object: Cube Mesh Manager"
-
-/path/to/blender --background --python test_cube_manager.py
-
-# Find your Blender addons folder:7. Click the hamburger menu (three lines) and select "Save Preferences" to keep it enabled
-
-# Or install and run interactively
-
-# See test_cube_manager.py for 8 comprehensive tests# Windows: %APPDATA%\Blender Foundation\Blender\{version}\scripts\addons\
+/path/to/blender --background --python test_cube_manager.py1. Download [`cube_mesh_manager.py`](cube_mesh_manager.py)- **Smart Grid Layout** - Automatically calculates near-square dimensions (m×n where m = ⌈√N⌉)- **Merge Meshes**: Combines selected meshes with common faces into a single mesh
 
 ```
 
+2. Open Blender → Edit → Preferences → Add-ons
+
+Test coverage includes:
+
+- Grid distribution (4, 9, 16, 20 cubes)3. Click **Install...** → Select the file → Enable checkbox- **Input Validation** - Accepts 1-20 cubes with "out of range" error for invalid inputs- **Common Face Detection**: Automatically identifies meshes sharing at least one face
+
+- Input validation
+
+- Basic and complex merging
+
+- Overlap avoidance
+
+- Delete functionality### Method 2: Manual Install- **Collection Management** - Organizes cubes in "Distributed Cubes" collection- **Smart Merging**: Merges common vertices and removes duplicate faces
+
+
+
+## Technical Details```bash
+
+
+
+### Grid Algorithm# Find your Blender addons folder:- **Overlap Avoidance** - AABB collision detection with 5×5 position search algorithm- **Clean Geometry**: Resulting mesh has no internal faces or duplicate vertices
+
+```python
+
+m = ceil(sqrt(N))      # Grid columns# Windows: %APPDATA%\Blender Foundation\Blender\{version}\scripts\addons\
+
+rows = ceil(N / m)     # Grid rows
+
+spacing = 2.5          # Units between cubes# macOS:   ~/Library/Application Support/Blender/{version}/scripts/addons/- **Delete Tool** - Quick removal of selected objects
+
+```
+
+# Linux:   ~/.config/blender/{version}/scripts/addons/
+
+Examples:
+
+- 4 cubes → 2×2 grid## Requirements
+
+- 9 cubes → 3×3 grid  
+
+- 10 cubes → 4×3 grid# Copy the addon file
+
+
+
+### Collision Detectioncp cube_mesh_manager.py /path/to/blender/addons/### 🔗 Mesh Composition System
+
+Uses AABB (Axis-Aligned Bounding Box) method. Two boxes do not overlap if:
+
+``````
+
+new_max_x < min_x OR new_min_x > max_x OR
+
+new_max_y < min_y OR new_min_y > max_y OR- **Common Face Detection** - Vertex-level comparison with 0.0001 tolerance- **Blender Version**: 3.0.0 or higher
+
+new_max_z < min_z OR new_min_z > max_z
+
+```## Usage
+
+
+
+If none of these conditions are true, boxes overlap.- **Seamless Merging** - Joins meshes and removes internal geometry- **Python**: Comes bundled with Blender (no external installation needed)
+
+
+
+### Face Matching### Access the Panel
+
+1. Convert all vertices to world space
+
+2. Compare faces vertex-by-vertexPress `N` in 3D Viewport → Click **"Cube Manager"** tab- **Multi-Object Support** - Processes multiple mesh pairs automatically- **Operating System**: Windows, macOS, or Linux
+
+3. Vertices match if distance < 0.0001 units
+
+4. Handles different vertex orderings
+
+
+
+### Merge Process### Distribute Cubes- **BMesh Integration** - Precise face removal using low-level mesh editing
+
+1. Find common faces before joining
+
+2. Join objects using bpy.ops.object.join()1. Enter number (1-20) in "Number of Meshes"
+
+3. Remove duplicate vertices with remove_doubles(0.0001)
+
+4. Delete internal faces using BMesh2. Click **"Distribute Cubes"**## Installation
+
+
+
+## Performance3. Cubes appear in 2D grid with 2.5 unit spacing
+
+
+
+- Grid Distribution: O(N) where N = number of cubes## 📥 Installation
+
+- Overlap Check: O(N×M) where M = existing objects
+
+- Face Detection: O(F₁×F₂) where F = faces per object### Merge Meshes
+
+- Memory: Minimal, stores only bounding boxes during distribution
+
+1. Position meshes so they share a face### Method 1: Direct Installation (Recommended)
+
+## Requirements
+
+2. Select 2+ mesh objects
+
+- Blender 3.0 or higher
+
+- Python 3.x (bundled with Blender)3. Click **"Compose Mesh"**### Method 1: Quick Install
+
+- No external dependencies
+
+4. Internal faces automatically removed
+
+## Project Structure
+
+1. Download [`cube_mesh_manager.py`](cube_mesh_manager.py)1. Download the `cube_mesh_manager.py` file
+
+```
+
+cube_mesh_manager_addon/### Delete Objects
+
+├── cube_mesh_manager.py      # Main addon file
+
+├── test_cube_manager.py      # Test suite1. Select one or more objects2. Open Blender → Edit → Preferences → Add-ons2. Open Blender
+
+├── demo_with_addon.py        # Demo script
+
+├── README.md                 # Documentation2. Click **"Delete Cubes"**
+
+├── requirements.txt          # Empty
+
+└── .gitignore               # Git config3. Click **Install...** → Select the file → Enable checkbox3. Go to `Edit` → `Preferences` → `Add-ons`
+
+```
+
+## Testing
+
+## Troubleshooting
+
+4. Click `Install...` button at the top
+
+**"The number is out of range"**  
+
+Enter a value between 1 and 20.Run the complete test suite:
+
+
+
+**"No meshes with common faces found"**  ### Method 2: Manual Install5. Navigate to and select `cube_mesh_manager.py`
+
+Ensure meshes are touching. Size 1 cubes need exactly 1 unit spacing.
+
+```bash
+
+**Cubes overlap existing objects**  
+
+Algorithm searches a 5×5 grid for free space. Move existing objects or accept some skipped cubes.# From command line (background mode)```bash6. Enable the addon by checking the checkbox next to "Object: Cube Mesh Manager"
+
+
+
+**Panel not visible**  /path/to/blender --background --python test_cube_manager.py
+
+Press N to show sidebar and verify addon is enabled in Preferences.
+
+# Find your Blender addons folder:7. Click the hamburger menu (three lines) and select "Save Preferences" to keep it enabled
+
+## License
+
+# Or install and run interactively
+
+MIT License
+
+# See test_cube_manager.py for 8 comprehensive tests# Windows: %APPDATA%\Blender Foundation\Blender\{version}\scripts\addons\
+
+## Author
+
+```
+
+Aditya Sarna
+
 # macOS:   ~/Library/Application Support/Blender/{version}/scripts/addons/### Method 2: Manual Installation
 
+## Version
+
 **Test Coverage:**
+
+1.0.0 (February 2026)
 
 - Grid distribution (4, 9, 16, 20 cubes)# Linux:   ~/.config/blender/{version}/scripts/addons/
 
