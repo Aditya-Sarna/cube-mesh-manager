@@ -1,0 +1,28 @@
+# Blender
+*.blend1
+*.blend2
+__pycache__/
+*.pyc
+
+# macOS
+.DS_Store
+
+# Test outputs
+*.png
+test_*.png
+
+# Python
+*.py[cod]
+*$py.class
+
+# Virtual environments
+venv/
+env/
+
+# IDE
+.vscode/
+.idea/
+
+# Temporary files
+*.tmp
+*.log

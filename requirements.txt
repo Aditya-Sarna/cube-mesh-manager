@@ -1,0 +1,15 @@
+# Blender Cube Mesh Manager Addon Requirements
+# This addon is designed for Blender 3.0 or higher
+
+# Blender comes with its own Python interpreter and required libraries
+# No external Python packages are required for this addon
+
+# Required Blender version: 3.0.0 or higher
+# Included Blender modules used:
+# - bpy (Blender Python API)
+# - bmesh (Blender mesh editing)
+# - mathutils (Vector and matrix operations)
+
+# Installation Note:
+# This addon does not require pip installation of packages.
+# Simply install the addon through Blender's preferences.
